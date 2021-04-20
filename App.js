@@ -15,6 +15,7 @@ import { default as themes } from "./src/theme/custom-theme.json";
 import { default as mapping } from "./mapping.json";
 import Track from "./track";
 import { HomeScreen } from "./src/screens/Home";
+import { CardScreen } from "./src/screens/card";
 // pack='feather' hidden={true} dark, (eva[theme]),
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -40,7 +41,7 @@ const Loaded = () => {
   }
   // from the custom App we return the component we assigned to RootApp.
 
-  return <AppNavigator />; //<HomeScreen />
+  return <CardScreen />; // <AppNavigator />; //<HomeScreen />
 };
 
 const removeData = async (value) => {
