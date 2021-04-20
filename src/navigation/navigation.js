@@ -16,10 +16,7 @@ const { Navigator, Screen } = createStackNavigator();
 const HomeNavigator = () => {
   const themeContext = React.useContext(ThemeContext);
 
-  const rootRoute =
-    themeContext.success === true && themeContext.success !== null
-      ? "Butt"
-      : "Login";
+  const rootRoute = "Butt";
 
   const test = rootRoute;
   // console.log(themeContext.success);
@@ -32,11 +29,6 @@ const HomeNavigator = () => {
   ) : (
     <Navigator headerMode="none" initialRouteName={rootRoute}>
       <Screen name="Butt" component={BottNavigator} />
-      <Screen name="Extension" component={Extension} />
-      <Screen name="Artist" component={ArtistScreen} />
-      <Screen name="Playlist" component={PlaylistScreen} />
-      <Screen name="Settings" component={SettingsScreen} />
-      <Screen name="Login" component={LoginScreen} />
     </Navigator>
   );
 };
