@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./GesturesFinal\";","map":{"version":3,"sources":["/home/software/work/Challenge/src/Gestures/index.ts"],"names":["default"],"mappings":"AAAA,SAASA,OAAT","sourcesContent":["export { default } from \"./GesturesFinal\";\n"]},"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"","map":{"version":3,"sources":[],"names":[],"mappings":"","sourcesContent":["export type Routes = {\n  HeartOfTheMatter: undefined;\n  Examples: undefined;\n  Transitions: undefined;\n  Animations: undefined;\n  Gestures: undefined;\n  SVGAnimations: undefined;\n};\n"]},"metadata":{},"sourceType":"script"}
