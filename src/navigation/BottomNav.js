@@ -9,50 +9,36 @@ import {
   StyleService,
 } from "@ui-kitten/components";
 
-import { BackHandler, Alert } from "react-native";
+import { Image, Text } from "react-native";
 
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { HomeScreen } from "../screens/Home";
-import { DetailsScreen } from "../screens/Details";
-import Track from "../../track";
+import Subscriptions from "../screens/subscription";
+import Card from "../screens/card";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const PersonIcon = (props) => (
-  <Icon {...props} pack="ionic" name="person-outline" />
+  <Image source={require("../../assets/images/report.png")} />
 );
 const Music = (props) => (
-  <Icon {...props} pack="ionic" name="musical-notes-outline" />
+  <Image source={require("../../assets/images/dashboard.png")} />
 );
-const Heart = (props) => <Icon {...props} pack="ionic" name="heart-outline" />;
+const Heart = (props) => (
+  <Image source={require("../../assets/images/chat.png")} />
+);
 const Search = (props) => (
-  <Icon {...props} pack="ionic" name="search-outline" />
+  <Image source={require("../../assets/images/hand.png")} />
 );
-const MicIcon = (props) => <Icon {...props} pack="ionic" name="mic-outline" />;
+const MicIcon = (props) => (
+  <Image color="white" source={require("../../assets/images/users.png")} />
+);
 
 const BottomNav = ({ navigation, state }) => {
   const styles = useStyleSheet(themedStyles);
 
-  React.useEffect(() => {
-    // const backAction = () => {
-    //   Alert.alert("Hold on!", "Are you sure you want to go Exit?", [
-    //     {
-    //       text: "Cancel",
-    //       onPress: () => null,
-    //       style: "cancel",
-    //     },
-    //     { text: "YES", onPress: () => BackHandler.exitApp() },
-    //   ]);
-    //   return true;
-    // };
-    // const backHandler = BackHandler.addEventListener(
-    //   "hardwareBackPress",
-    //   backAction
-    // );
-    // return () => backHandler.remove();
-  }, []);
+  React.useEffect(() => {}, []);
 
   return (
     <Layout>
@@ -62,11 +48,46 @@ const BottomNav = ({ navigation, state }) => {
         appearance="noIndicator"
         style={styles.butt}
       >
-        <BottomNavigationTab icon={Music} title="Music" />
-        <BottomNavigationTab icon={MicIcon} title="Shows" />
-        <BottomNavigationTab icon={Heart} title="Favorites" />
-        <BottomNavigationTab icon={Search} title="Search" />
-        <BottomNavigationTab icon={PersonIcon} title="Profile" />
+        <BottomNavigationTab
+          icon={Music}
+          title={() => (
+            <Text style={{ color: "white", fontFamily: "Proxima" }}>
+              Overview
+            </Text>
+          )}
+        />
+        <BottomNavigationTab
+          icon={MicIcon}
+          title={() => (
+            <Text style={{ color: "white", fontFamily: "Proxima" }}>
+              Customers
+            </Text>
+          )}
+        />
+        <BottomNavigationTab
+          icon={Heart}
+          title={() => (
+            <Text style={{ color: "white", fontFamily: "Proxima" }}>
+              Campaign
+            </Text>
+          )}
+        />
+        <BottomNavigationTab
+          icon={Search}
+          title={() => (
+            <Text style={{ color: "white", fontFamily: "Proxima" }}>
+              Subscriptions
+            </Text>
+          )}
+        />
+        <BottomNavigationTab
+          icon={PersonIcon}
+          title={() => (
+            <Text style={{ color: "white", fontFamily: "Proxima" }}>
+              Reports
+            </Text>
+          )}
+        />
       </BottomNavigation>
     </Layout>
   );
@@ -75,20 +96,18 @@ const BottomNav = ({ navigation, state }) => {
 export const BottNavigator = () => (
   <Navigator
     backBehavior="initialRoute"
-    initialRouteName="Home"
+    initialRouteName="Subscriptions"
     headerMode="none"
     tabBar={(props) => <BottomNav {...props} />}
   >
-    <Screen name="Home" component={HomeScreen} />
-    <Screen name="Details" component={DetailsScreen} />
+    <Screen name="Card" component={Card} />
     {/* <Screen name="Track" component={Track} /> */}
   </Navigator>
 );
 
 const themedStyles = StyleService.create({
   butt: {
-    backgroundColor: "background-basic-color-3",
-    borderTopLeftRadius: wp(5),
-    borderTopRightRadius: wp(5),
+    backgroundColor: "color-primary-500",
+    paddingVertical: hp(2),
   },
 });
