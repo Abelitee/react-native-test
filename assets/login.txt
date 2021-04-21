@@ -1,3 +1,0 @@
-primary: #4B276B
-
-secoundary: #381C53
